@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-class Mail {
+class MailConfig {
     constructor() {
         this.host = process.env.EMAIL_HOST;
         this.port = +process.env.EMAIL_PORT;
@@ -8,4 +8,4 @@ class Mail {
         this.password = process.env.EMAIL_PASS;
     }
 }
-exports.default = new Mail();
+exports.default = new MailConfig();

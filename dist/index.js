@@ -31,7 +31,7 @@ const cors_1 = __importDefault(require("cors"));
 const swagger_jsdoc_1 = __importDefault(require("swagger-jsdoc"));
 const swagger_ui_express_1 = __importDefault(require("swagger-ui-express"));
 const index_1 = __importDefault(require("./src/routes/index"));
-const db_1 = __importDefault(require("./src/database/db"));
+require("dotenv/config");
 const swaggerOptions = {
     definition: {
         openapi: "3.0.0",
@@ -69,7 +69,7 @@ app.use((0, express_1.json)());
 app.use((0, express_1.urlencoded)({ extended: true }));
 app.use("/api-docs", swagger_ui_express_1.default.serve, swagger_ui_express_1.default.setup(swaggerDocs));
 app.listen(port, async () => {
-    await db_1.default.sync();
+    // await db.sync();
     console.log(`Server running on ${process.env.APP_URL}`);
 });
 app.get("/", (req, res) => {

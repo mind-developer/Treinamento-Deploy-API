@@ -4,6 +4,7 @@ import swaggerJSDoc from "swagger-jsdoc";
 import swaggerUi from "swagger-ui-express";
 import routes from "./src/routes/index";
 import db from "./src/database/db";
+import 'dotenv/config'
 
 const swaggerOptions = {
   definition: {
@@ -45,7 +46,7 @@ app.use(urlencoded({ extended: true }));
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 app.listen(port, async () => {
-  await db.sync();
+  // await db.sync();
   console.log(`Server running on ${process.env.APP_URL}`);
 });
 
